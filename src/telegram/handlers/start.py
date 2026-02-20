@@ -8,14 +8,18 @@ from aiogram.types import Message
 
 router = Router(name="start")
 
+WELCOME_TEXT = (
+    "<b>SmartShopper</b>\n"
+    "\u2500" * 25 + "\n\n"
+    "היי! אני שופי, העוזר החכם שלך להשוואת מחירים.\n\n"
+    "סורק 15+ חנויות ומחזיר לך 5 המחירים הכי טובים, "
+    'כולל עלות משלוח עם שיליחויות בע"מ.\n\n'
+    "כתוב שם מוצר ואני אטפל בשאר!\n"
+    "לדוגמה: <i>אוזניות בלוטוס</i>"
+)
+
 
 @router.message(CommandStart())
 async def cmd_start(message: Message) -> None:
     """Send Hebrew welcome message with usage instructions."""
-    await message.answer(
-        "<b>SmartShopper</b> - השוואת מחירים חכמה\n\n"
-        "שלח לי שם מוצר ואמצא לך את 5 המחירים הטובים ביותר "
-        "מ-15+ חנויות ישראליות, כולל עלות משלוח עם שיליחויות בע\"מ.\n\n"
-        "לדוגמה: <i>אוזניות בלוטוס</i>\n\n"
-        "פשוט כתוב מה אתה מחפש ואני אטפל בשאר."
-    )
+    await message.answer(WELCOME_TEXT)

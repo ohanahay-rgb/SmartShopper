@@ -1,6 +1,6 @@
 """Rate limiting middleware -- token bucket per user.
 
-Allows max 3 requests per 60 seconds per user.
+Allows max 15 requests per 60 seconds per user.
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from typing import Any
 from aiogram import BaseMiddleware
 from aiogram.types import Message
 
-MAX_REQUESTS = 3
+MAX_REQUESTS = 15
 WINDOW_SECONDS = 60.0
 
 

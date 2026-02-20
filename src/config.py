@@ -119,6 +119,9 @@ class Settings(BaseSettings):
     budget_warning_threshold: float = 0.80
     budget_block_threshold: float = 0.95
 
+    # Discord
+    discord_webhook_url: str = Field(default="", alias="DISCORD_WEBHOOK_URL")
+
     # Nested sub-settings
     database: DatabaseSettings = Field(default_factory=DatabaseSettings)
     redis: RedisSettings = Field(default_factory=RedisSettings)
